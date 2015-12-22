@@ -17,13 +17,13 @@ public class CompilerApplication {
 
         // create a lexer that feeds off of input CharStream
         //ArrayInitLexer lexer = new ArrayInitLexer(input);
-        ArrayInitLexer lexer = new ArrayInitLexer( new ANTLRFileStream(args[0]) );
+        HuuzkeeLexer lexer = new HuuzkeeLexer( new ANTLRFileStream(args[0]) );
 
         // create a buffer of tokens pulled from the lexer
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
         // create a parser that feeds off the tokens buffer
-        ArrayInitParser parser = new ArrayInitParser(tokens);
+        HuuzkeeParser parser = new HuuzkeeParser(tokens);
 
         ParseTree tree = parser.init(); // begin parsing at init rule
         System.out.println(tree.toStringTree(parser)); // print LISP-style tree
